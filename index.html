@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bamboo Bowl 57 in Siegen: Sushi, Wok und Bowls mit frischer vietnamesischer Küche.">
+  <title>Bamboo Bowl 57 | Sushi, Wok & Bowls in Siegen</title>
+  <style>
+    :root {
+      --forest: #06442f;
+      --forest-dark: #073522;
+      --forest-ink: #0b2b1e;
+      --mint: #a5cf9c;
+      --cream: #efe5d7;
+      --paper: #fffdf8;
+      --gold: #f9cc72;
+      --leaf: #77ae4e;
+      --ink: #121a15;
+      --muted: #4e5b52;
+      --line: rgba(249, 204, 114, 0.58);
+      --shadow: 0 22px 50px rgba(3, 16, 10, 0.28);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .script {
+      font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 940px;
+      overflow: hidden;
+      color: #fff;
+      background: var(--forest);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 21% 36%, rgba(166, 207, 156, 0.10), transparent 23%),
+        radial-gradient(circle at 76% 25%, rgba(249, 204, 114, 0.10), transparent 25%);
+      pointer-events: none;
+    }
+
+    .hero__nav,
+    .hero__stage {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero__nav {
+      min-height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 28px;
+    }
+
+    .brand-logo {
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.26));
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 8px 16px;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 850;
+      border-radius: var(--radius);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--forest-dark);
+      background: var(--gold);
+      outline: none;
+    }
+
+    .hero__stage {
+      height: 690px;
+    }
+
+    .hero__headline {
+      position: absolute;
+      top: 46px;
+      left: 210px;
+      width: min(380px, 42vw);
+      margin: 0;
+      color: #050806;
+      font-size: clamp(2.1rem, 3.1vw, 3.1rem);
+      line-height: 1.4;
+      font-weight: 900;
+    }
+
+    .hero__welcome {
+      position: absolute;
+      left: 0;
+      bottom: 178px;
+      width: min(560px, 52vw);
+      margin: 0;
+      color: #fff;
+      font-size: clamp(3.6rem, 6.6vw, 6.1rem);
+      line-height: 1.18;
+      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero__copy {
+      position: absolute;
+      right: 0;
+      bottom: 230px;
+      width: 335px;
+      margin: 0;
+      color: #fff;
+      font-size: 1.18rem;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
+    .hero__actions {
+      position: absolute;
+      right: 0;
+      bottom: 126px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .button--primary {
+      color: var(--forest-dark);
+      background: var(--gold);
+    }
+
+    .button--ghost {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .button--ghost:hover,
+    .button--ghost:focus-visible {
+      color: var(--forest-dark);
+      background: #fff;
+    }
+
+    .hero__social {
+      position: absolute;
+      right: 4px;
+      bottom: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .social-dot {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      font-size: 0.92rem;
+    }
+
+    .hero__bamboo {
+      position: absolute;
+      right: 156px;
+      top: 80px;
+      width: 400px;
+      height: 420px;
+      --bamboo-scale: 1;
+      pointer-events: none;
+    }
+
+    .cane {
+      position: absolute;
+      bottom: 12px;
+      width: calc(54px * var(--bamboo-scale, 1));
+      height: calc(var(--h) * var(--bamboo-scale, 1));
+      left: calc(var(--x) * var(--bamboo-scale, 1));
+      border: calc(6px * var(--bamboo-scale, 1)) solid #203623;
+      border-radius: calc(22px * var(--bamboo-scale, 1));
+      background: linear-gradient(90deg, #5b8d38, #c8dc66 42%, #6da342 68%, #3d6d35);
+      transform: rotate(var(--r));
+      box-shadow: inset 9px 0 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .cane::before,
+    .cane::after {
+      content: "";
+      position: absolute;
+      left: calc(-4px * var(--bamboo-scale, 1));
+      right: calc(-4px * var(--bamboo-scale, 1));
+      height: calc(8px * var(--bamboo-scale, 1));
+      border: calc(4px * var(--bamboo-scale, 1)) solid #203623;
+      border-left: 0;
+      border-right: 0;
+      background: rgba(255, 236, 132, 0.45);
+    }
+
+    .cane::before {
+      top: 31%;
+    }
+
+    .cane::after {
+      top: 65%;
+    }
+
+    .leaf {
+      position: absolute;
+      width: calc(132px * var(--bamboo-scale, 1));
+      height: calc(24px * var(--bamboo-scale, 1));
+      border: calc(5px * var(--bamboo-scale, 1)) solid #203623;
+      border-radius: 100% 8% 100% 8%;
+      background: linear-gradient(90deg, #4b883b, #d0e66d);
+      transform: rotate(var(--r));
+      left: calc(var(--x) * var(--bamboo-scale, 1));
+      top: calc(var(--y) * var(--bamboo-scale, 1));
+    }
+
+    .drink-sticker {
+      position: absolute;
+      left: 16px;
+      top: 230px;
+      width: 60px;
+      height: 92px;
+      transform: rotate(-16deg);
+      border: 4px solid #173025;
+      border-radius: 9px 9px 18px 18px;
+      background: linear-gradient(180deg, transparent 0 35%, #e2353e 36% 100%);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .drink-sticker::before {
+      content: "";
+      position: absolute;
+      top: 26px;
+      left: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .drink-sticker::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 23px;
+      width: 8px;
+      height: 48px;
+      border-radius: 999px;
+      background: #fff;
+      transform: rotate(-25deg);
+    }
+
+    .hero__wave {
+      position: absolute;
+      z-index: 1;
+      left: -6%;
+      right: -6%;
+      bottom: -120px;
+      height: 250px;
+      background: var(--cream);
+      border-radius: 52% 48% 0 0 / 70% 62% 0 0;
+    }
+
+    .hero__wave::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -32px;
+      height: 90px;
+      background: var(--mint);
+      border-radius: 52% 48% 0 0 / 88% 74% 0 0;
+      z-index: -1;
+    }
+
+    section {
+      scroll-margin-top: 24px;
+    }
+
+    .about {
+      position: relative;
+      overflow: hidden;
+      min-height: 850px;
+      padding: 130px 0 90px;
+      background: var(--cream);
+    }
+
+    .about__inner,
+    .features__inner,
+    .menu__inner,
+    .contact__inner {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .about__blob {
+      width: min(780px, 74vw);
+      min-height: 465px;
+      margin: 100px auto 0;
+      display: grid;
+      place-items: center;
+      padding: 64px 90px;
+      color: #fff;
+      text-align: center;
+      background: var(--forest);
+      border-radius: 51% 49% 44% 56% / 42% 55% 45% 58%;
+      box-shadow: var(--shadow);
+    }
+
+    .about__blob h2,
+    .features h2,
+    .menu h2 {
+      margin: 0 0 28px;
+      color: inherit;
+      font-size: clamp(3.2rem, 6vw, 5rem);
+      line-height: 1;
+    }
+
+    .about__blob p {
+      margin: 0 auto 24px;
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.16rem;
+      font-weight: 760;
+    }
+
+    .about__blob .button {
+      margin-top: 6px;
+    }
+
+    .about__deco {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .about__deco--logo {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .about__deco.logo-a {
+      top: 130px;
+      left: calc(50% - 450px);
+      transform: rotate(-12deg);
+    }
+
+    .about__deco.logo-b {
+      right: calc(50% - 510px);
+      bottom: 155px;
+      transform: rotate(12deg);
+    }
+
+    .about__bamboo {
+      left: max(-80px, calc(50% - 690px));
+      bottom: 88px;
+      width: 360px;
+      height: 430px;
+    }
+
+    .about__bamboo .cane {
+      transform-origin: bottom center;
+    }
+
+    .features {
+      position: relative;
+      padding: 120px 0 150px;
+      overflow: hidden;
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .features::before {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      top: -92px;
+      height: 150px;
+      background: var(--cream);
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    }
+
+    .features h2 {
+      color: var(--forest);
+    }
+
+    .features__grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: clamp(22px, 2.8vw, 36px);
+      align-items: start;
+      margin-top: 54px;
+    }
+
+    .feature {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+    }
+
+    .feature__image {
+      width: min(214px, 100%);
+      aspect-ratio: 1.7;
+      border-radius: 48% 52% 44% 56% / 58% 50% 50% 42%;
+      overflow: hidden;
+      box-shadow: 0 18px 34px rgba(4, 29, 19, 0.15);
+      background: var(--forest);
+    }
+
+    .feature__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .feature__badge {
+      position: absolute;
+      top: -12px;
+      right: calc(50% - 116px);
+      width: 62px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #3f875d;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 1.08rem;
+    }
+
+    .feature h3 {
+      width: min(230px, 100%);
+      margin: 0;
+      color: var(--forest);
+      font-size: clamp(1.55rem, 2.3vw, 2.2rem);
+      line-height: 1.02;
+      overflow-wrap: break-word;
+    }
+
+    .feature p {
+      width: min(230px, 100%);
+      margin: 0;
+      color: #202820;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .menu {
+      position: relative;
+      padding: 130px 0 110px;
+      background: var(--forest);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .menu::before {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      top: -105px;
+      height: 180px;
+      background: var(--paper);
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    }
+
+    .menu__heading {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .menu h2 {
+      margin-bottom: 12px;
+    }
+
+    .menu__heading p {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.08rem;
+      font-weight: 720;
+    }
+
+    .page-jump {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+      max-width: 460px;
+    }
+
+    .page-jump button {
+      width: 35px;
+      height: 35px;
+      display: inline-grid;
+      place-items: center;
+      color: var(--gold);
+      border: 1px solid rgba(249, 204, 114, 0.52);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 0.86rem;
+    }
+
+    .page-jump button:hover,
+    .page-jump button:focus-visible,
+    .page-jump button[aria-current="page"] {
+      color: var(--forest);
+      background: var(--gold);
+      outline: none;
+    }
+
+    .menu-grid {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: min(660px, 100%);
+      min-width: 0;
+      margin: 0 auto;
+      background: #0f2118;
+      border: 1px solid rgba(249, 204, 114, 0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-page {
+      display: none;
+      margin: 0;
+      padding: clamp(16px, 2vw, 24px);
+      min-width: 0;
+      border: 0;
+      content-visibility: auto;
+      contain-intrinsic-size: 530px 770px;
+    }
+
+    .menu-page.is-active {
+      display: block;
+    }
+
+    .menu-page:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .menu-page img {
+      width: 100%;
+      min-width: 0;
+      aspect-ratio: 4419 / 6250;
+      height: auto;
+      object-fit: contain;
+      cursor: zoom-in;
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
+      background: var(--forest-ink);
+    }
+
+    .menu-page figcaption {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding-top: 10px;
+    }
+
+    .contact {
+      position: relative;
+      padding: 100px 0;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .contact__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .contact__panel {
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(30px, 5vw, 58px);
+      color: #fff;
+      background: var(--forest);
+      border-radius: 48% 52% 44% 56% / 18% 28% 24% 22%;
+      box-shadow: var(--shadow);
+    }
+
+    .contact__panel h2 {
+      margin: 0 0 18px;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1;
+    }
+
+    .contact__panel p {
+      margin: 0 0 22px;
+      max-width: 520px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .hours {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 24px;
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 800;
+    }
+
+    .hours div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      padding-bottom: 8px;
+    }
+
+    .map-frame {
+      min-height: 470px;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: #d8d0c1;
+    }
+
+    .floating-phone {
+      position: fixed;
+      right: 26px;
+      bottom: 26px;
+      z-index: 50;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 18px;
+      background: #263748;
+      border: 3px solid rgba(82, 205, 221, 0.65);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.26);
+      font-size: 1.45rem;
+      font-weight: 900;
+    }
+
+    .floating-phone:hover,
+    .floating-phone:focus-visible {
+      color: var(--forest-dark);
+      background: var(--gold);
+      outline: none;
+    }
+
+    .footer {
+      padding: 28px 0;
+      color: rgba(255, 255, 255, 0.72);
+      text-align: center;
+      background: var(--forest-dark);
+      font-weight: 700;
+    }
+
+    .footer__inner {
+      width: min(1120px, calc(100% - 32px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 auto;
+    }
+
+    .footer strong {
+      color: #fff;
+    }
+
+    .footer__copyright {
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    dialog.lightbox {
+      width: min(1160px, calc(100vw - 24px));
+      max-height: calc(100svh - 24px);
+      padding: 0;
+      border: 1px solid rgba(249, 204, 114, 0.45);
+      border-radius: var(--radius);
+      color: #fff;
+      background: #07170f;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+    }
+
+    dialog.lightbox::backdrop {
+      background: rgba(4, 12, 8, 0.78);
+      backdrop-filter: blur(7px);
+    }
+
+    .lightbox__bar {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px 10px 16px;
+      border-bottom: 1px solid rgba(249, 204, 114, 0.2);
+      font-weight: 900;
+    }
+
+    .lightbox__controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .lightbox__control {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .lightbox__control:hover,
+    .lightbox__control:focus-visible {
+      color: var(--forest);
+      background: var(--gold);
+      outline: none;
+    }
+
+    .lightbox__canvas {
+      max-height: calc(100svh - 84px);
+      overflow: auto;
+      background: #0b1d13;
+    }
+
+    .lightbox__canvas img {
+      width: min(100%, 920px);
+      height: auto;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        min-height: 1040px;
+      }
+
+      .hero__stage {
+        height: 840px;
+      }
+
+      .hero__headline,
+      .hero__welcome,
+      .hero__copy,
+      .hero__actions,
+      .hero__social,
+      .hero__bamboo {
+        position: relative;
+        inset: auto;
+      }
+
+      .hero__headline {
+        width: min(540px, 100%);
+        margin: 24px 0 0;
+      }
+
+      .hero__bamboo {
+        width: 340px;
+        height: 340px;
+        --bamboo-scale: 0.75;
+        margin: -8px 0 0 auto;
+      }
+
+      .hero__welcome {
+        width: min(590px, 100%);
+        margin-top: -20px;
+        font-size: clamp(3.2rem, 11vw, 5.4rem);
+      }
+
+      .hero__copy {
+        width: min(520px, 100%);
+        margin-top: 20px;
+      }
+
+      .hero__actions {
+        margin-top: 22px;
+      }
+
+      .hero__social {
+        margin-top: 26px;
+      }
+
+      .drink-sticker {
+        top: 210px;
+      }
+
+      .about__blob {
+        width: min(720px, 100%);
+        padding: 54px 42px;
+      }
+
+      .about__deco.logo-a,
+      .about__deco.logo-b,
+      .about__bamboo {
+        opacity: 0.22;
+      }
+
+      .features__grid,
+      .contact__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu__heading {
+        grid-template-columns: 1fr;
+      }
+
+      .page-jump {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        min-height: 925px;
+      }
+
+      .hero__nav {
+        min-height: 96px;
+        padding-top: 16px;
+      }
+
+      .brand-logo {
+        width: 78px;
+        height: 78px;
+      }
+
+      .hero__stage {
+        height: 740px;
+      }
+
+      .hero__headline {
+        margin-top: 14px;
+        color: #030604;
+        max-width: 330px;
+        font-size: clamp(1.55rem, 7.2vw, 2rem);
+        line-height: 1.36;
+      }
+
+      .hero__bamboo {
+        width: 220px;
+        height: 225px;
+        --bamboo-scale: 0.48;
+        margin-top: -12px;
+        margin-right: 0;
+        opacity: 0.9;
+      }
+
+      .drink-sticker {
+        top: 212px;
+        left: 46px;
+        width: 46px;
+        height: 70px;
+        border-width: 3px;
+      }
+
+      .hero__welcome {
+        margin-top: 2px;
+        font-size: clamp(2.7rem, 14vw, 4rem);
+      }
+
+      .hero__wave {
+        left: 0;
+        right: 0;
+      }
+
+      .hero__copy {
+        font-size: 1rem;
+      }
+
+      .hero__actions {
+        gap: 10px;
+      }
+
+      .button {
+        min-height: 46px;
+        padding: 12px 15px;
+      }
+
+      .about {
+        min-height: auto;
+        padding: 64px 0 76px;
+      }
+
+      .about__blob {
+        min-height: auto;
+        margin-top: 30px;
+        padding: 44px 24px;
+        border-radius: 22% 28% 24% 20% / 16% 18% 15% 20%;
+      }
+
+      .about__blob h2,
+      .features h2,
+      .menu h2,
+      .contact__panel h2 {
+        font-size: clamp(2.7rem, 15vw, 4rem);
+      }
+
+      .about__blob p {
+        font-size: 1rem;
+      }
+
+      .about__deco {
+        display: none;
+      }
+
+      .features {
+        padding: 86px 0 100px;
+      }
+
+      .features__grid {
+        gap: 52px;
+      }
+
+      .menu {
+        padding: 94px 0 82px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-page,
+      .menu-page:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .contact {
+        padding: 70px 0;
+      }
+
+      .contact__panel {
+        min-height: auto;
+        border-radius: var(--radius);
+      }
+
+      .hours div {
+        display: grid;
+      }
+
+      .map-frame {
+        min-height: 360px;
+      }
+
+      .footer__inner {
+        justify-content: center;
+      }
+
+      .floating-phone {
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__nav">
+        <a href="#top" aria-label="Bamboo Bowl 57 Startseite">
+          <img class="brand-logo" src="logo.jpg" alt="Bamboo Bowl 57 Logo" width="1284" height="1284" fetchpriority="high">
+        </a>
+        <a class="nav-link" href="#speisekarte">Menu</a>
+      </div>
+
+      <div class="hero__stage">
+        <h2 class="hero__headline">Frische vietnamesische Küche neu erlebt</h2>
+
+        <div class="hero__bamboo" aria-hidden="true">
+          <span class="cane" style="--x: 126px; --h: 350px; --r: -3deg;"></span>
+          <span class="cane" style="--x: 178px; --h: 410px; --r: 2deg;"></span>
+          <span class="cane" style="--x: 228px; --h: 290px; --r: 6deg;"></span>
+          <span class="cane" style="--x: 280px; --h: 360px; --r: 12deg;"></span>
+          <span class="cane" style="--x: 82px; --h: 240px; --r: -10deg;"></span>
+          <span class="leaf" style="--x: 22px; --y: 60px; --r: 24deg;"></span>
+          <span class="leaf" style="--x: 36px; --y: 130px; --r: -8deg;"></span>
+          <span class="leaf" style="--x: 262px; --y: 72px; --r: -24deg;"></span>
+          <span class="leaf" style="--x: 300px; --y: 150px; --r: 13deg;"></span>
+          <span class="leaf" style="--x: 4px; --y: 250px; --r: 10deg;"></span>
+        </div>
+
+        <span class="drink-sticker" aria-hidden="true"></span>
+
+        <h1 class="hero__welcome script" id="hero-title">Willkommen bei<br>Bamboo Bowl 57</h1>
+        <p class="hero__copy">Traditionelle Rezepte kombiniert mit moderner Küche - leicht, aromatisch und ausgewogen.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="tel:+4927170305194">☎ 0271 70305194</a>
+          <a class="button button--ghost" href="https://maps.app.goo.gl/MzKq6xeMq3d4tKkK8" target="_blank" rel="noopener">Route öffnen</a>
+        </div>
+        <div class="hero__social" aria-label="Kontakt">
+          <span class="social-dot">IG</span>
+          <span class="social-dot">f</span>
+        </div>
+      </div>
+      <div class="hero__wave" aria-hidden="true"></div>
+    </section>
+
+    <section class="about" id="ueber-uns" aria-labelledby="about-title">
+      <img class="about__deco about__deco--logo logo-a" src="logo.jpg" alt="" width="1284" height="1284" loading="lazy">
+      <img class="about__deco about__deco--logo logo-b" src="logo.jpg" alt="" width="1284" height="1284" loading="lazy">
+      <div class="about__deco about__bamboo" aria-hidden="true">
+        <span class="cane" style="--x: 86px; --h: 340px; --r: -5deg;"></span>
+        <span class="cane" style="--x: 138px; --h: 420px; --r: 3deg;"></span>
+        <span class="cane" style="--x: 192px; --h: 305px; --r: 9deg;"></span>
+        <span class="leaf" style="--x: 14px; --y: 70px; --r: 24deg;"></span>
+        <span class="leaf" style="--x: 230px; --y: 128px; --r: -18deg;"></span>
+        <span class="leaf" style="--x: 34px; --y: 238px; --r: 8deg;"></span>
+      </div>
+
+      <div class="about__inner">
+        <div class="about__blob">
+          <div>
+            <h2 class="script" id="about-title">Über uns</h2>
+            <p>Willkommen bei Bamboo Bowl 57 - Ihrem Restaurant für frisches Sushi, aromatische Wok-Gerichte und gesunde Bowls mit authentischen vietnamesischen Aromen.</p>
+            <p>Wir legen großen Wert auf frische Zutaten, ausgewogene Rezepte und eine moderne Interpretation der asiatischen Küche. Ob leicht, herzhaft oder exotisch - bei uns finden Sie den perfekten Geschmacksmoment.</p>
+            <a class="button button--ghost" href="tel:+4927170305194">10% Rabatt bei Abholung</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <div class="features__inner">
+        <h2 class="script" id="features-title">Unsere Besonderheiten</h2>
+        <div class="features__grid">
+          <article class="feature">
+            <div class="feature__image">
+              <img src="assets/feature-1.jpg" alt="Frischer Wakame-Salat" width="1200" height="706" loading="lazy">
+            </div>
+            <span class="feature__badge">1</span>
+            <h3 class="script">Frische Zutaten täglich</h3>
+            <p>Wir verwenden frische, sorgfältig ausgewählte Zutaten - für Qualität, die man schmeckt.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__image">
+              <img src="assets/feature-2.jpg" alt="Heiße vietnamesische Suppe" width="1200" height="706" loading="lazy">
+            </div>
+            <span class="feature__badge">2</span>
+            <h3 class="script">Authentische vietnamesische Aromen</h3>
+            <p>Traditionelle Rezepte kombiniert mit moderner Küche - leicht, aromatisch und ausgewogen.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__image">
+              <img src="assets/feature-3.jpg" alt="Sushi-Auswahl" width="1200" height="706" loading="lazy">
+            </div>
+            <span class="feature__badge">3</span>
+            <h3 class="script">Vielfältige Auswahl</h3>
+            <p>Ob Sushi, Wok oder Bowls - bei uns findet jeder sein Lieblingsgericht.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__image">
+              <img src="assets/feature-4.jpg" alt="Frische Bowl mit Lachs und Avocado" width="1200" height="706" loading="lazy">
+            </div>
+            <span class="feature__badge">4</span>
+            <h3 class="script">Gesund & ausgewogen</h3>
+            <p>Unsere Gerichte sind leicht, nährstoffreich und perfekt für eine bewusste Ernährung.</p>
+          </article>
+          <article class="feature">
+            <div class="feature__image">
+              <img src="assets/feature-5.jpg" alt="Frisches hausgemachtes Getränk" width="1200" height="706" loading="lazy">
+            </div>
+            <span class="feature__badge">5</span>
+            <h3 class="script">Schneller Service</h3>
+            <p>Frisch zubereitet und schnell serviert - ideal für Mittagspause oder entspanntes Abendessen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu" id="speisekarte" aria-labelledby="menu-title">
+      <div class="menu__inner">
+        <div class="menu__heading">
+          <div>
+            <h2 class="script" id="menu-title">Menu</h2>
+            <p>Die aktuelle Speisekarte von Bamboo Bowl 57: Sushi, Wokgerichte, Bowls, Desserts und Hinweise zu Allergenen.</p>
+          </div>
+          <nav class="page-jump" aria-label="Speisekarten-Seiten">
+            <button type="button" data-menu-target="1" aria-current="page">1</button>
+            <button type="button" data-menu-target="2">2</button>
+            <button type="button" data-menu-target="3">3</button>
+            <button type="button" data-menu-target="4">4</button>
+            <button type="button" data-menu-target="5">5</button>
+            <button type="button" data-menu-target="6">6</button>
+            <button type="button" data-menu-target="7">7</button>
+            <button type="button" data-menu-target="8">8</button>
+            <button type="button" data-menu-target="9">9</button>
+            <button type="button" data-menu-target="10">10</button>
+            <button type="button" data-menu-target="11">11</button>
+            <button type="button" data-menu-target="12">12</button>
+            <button type="button" data-menu-target="13">13</button>
+            <button type="button" data-menu-target="14">14</button>
+            <button type="button" data-menu-target="15">15</button>
+            <button type="button" data-menu-target="16">16</button>
+            <button type="button" data-menu-target="17">17</button>
+            <button type="button" data-menu-target="18">18</button>
+            <button type="button" data-menu-target="19">19</button>
+            <button type="button" data-menu-target="20">20</button>
+            <button type="button" data-menu-target="21">21</button>
+          </nav>
+        </div>
+
+        <div class="menu-grid">
+          <figure class="menu-page is-active" id="menu-1">
+            <img src="Menu mới/1.png" alt="Speisekarte Seite 1" width="4419" height="6250" loading="lazy" decoding="async" data-page="1">
+            <figcaption><span>Seite 1</span><span>Öffnungszeiten</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-2">
+            <img src="Menu mới/2.png" alt="Speisekarte Seite 2" width="4419" height="6250" loading="lazy" decoding="async" data-page="2">
+            <figcaption><span>Seite 2</span><span>Vorspeisen</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-3">
+            <img src="Menu mới/3.png" alt="Speisekarte Seite 3" width="4419" height="6250" loading="lazy" decoding="async" data-page="3">
+            <figcaption><span>Seite 3</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-4">
+            <img src="Menu mới/4.png" alt="Speisekarte Seite 4" width="4419" height="6250" loading="lazy" decoding="async" data-page="4">
+            <figcaption><span>Seite 4</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-5">
+            <img src="Menu mới/5.png" alt="Speisekarte Seite 5" width="4419" height="6250" loading="lazy" decoding="async" data-page="5">
+            <figcaption><span>Seite 5</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-6">
+            <img src="Menu mới/6.png" alt="Speisekarte Seite 6" width="4419" height="6250" loading="lazy" decoding="async" data-page="6">
+            <figcaption><span>Seite 6</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-7">
+            <img src="Menu mới/7.png" alt="Speisekarte Seite 7" width="4419" height="6250" loading="lazy" decoding="async" data-page="7">
+            <figcaption><span>Seite 7</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-8">
+            <img src="Menu mới/8.png" alt="Speisekarte Seite 8" width="4419" height="6250" loading="lazy" decoding="async" data-page="8">
+            <figcaption><span>Seite 8</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-9">
+            <img src="Menu mới/9.png" alt="Speisekarte Seite 9" width="4419" height="6250" loading="lazy" decoding="async" data-page="9">
+            <figcaption><span>Seite 9</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-10">
+            <img src="Menu mới/10.png" alt="Speisekarte Seite 10" width="4419" height="6250" loading="lazy" decoding="async" data-page="10">
+            <figcaption><span>Seite 10</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-11">
+            <img src="Menu mới/11.png" alt="Speisekarte Seite 11" width="4419" height="6250" loading="lazy" decoding="async" data-page="11">
+            <figcaption><span>Seite 11</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-12">
+            <img src="Menu mới/12.png" alt="Speisekarte Seite 12" width="4419" height="6250" loading="lazy" decoding="async" data-page="12">
+            <figcaption><span>Seite 12</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-13">
+            <img src="Menu mới/13.png" alt="Speisekarte Seite 13" width="4419" height="6250" loading="lazy" decoding="async" data-page="13">
+            <figcaption><span>Seite 13</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-14">
+            <img src="Menu mới/14.png" alt="Speisekarte Seite 14" width="4419" height="6250" loading="lazy" decoding="async" data-page="14">
+            <figcaption><span>Seite 14</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-15">
+            <img src="Menu mới/15.png" alt="Speisekarte Seite 15" width="4419" height="6250" loading="lazy" decoding="async" data-page="15">
+            <figcaption><span>Seite 15</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-16">
+            <img src="Menu mới/16.png" alt="Speisekarte Seite 16" width="4419" height="6250" loading="lazy" decoding="async" data-page="16">
+            <figcaption><span>Seite 16</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-17">
+            <img src="Menu mới/17.png" alt="Speisekarte Seite 17" width="4419" height="6250" loading="lazy" decoding="async" data-page="17">
+            <figcaption><span>Seite 17</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-18">
+            <img src="Menu mới/18.png" alt="Speisekarte Seite 18" width="4419" height="6250" loading="lazy" decoding="async" data-page="18">
+            <figcaption><span>Seite 18</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-19">
+            <img src="Menu mới/19.png" alt="Speisekarte Seite 19" width="4419" height="6250" loading="lazy" decoding="async" data-page="19">
+            <figcaption><span>Seite 19</span><span>Speisekarte</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-20">
+            <img src="Menu mới/20.png" alt="Speisekarte Seite 20" width="4419" height="6250" loading="lazy" decoding="async" data-page="20">
+            <figcaption><span>Seite 20</span><span>Hinweise</span></figcaption>
+          </figure>
+          <figure class="menu-page" id="menu-21">
+            <img src="Menu mới/21.png" alt="Speisekarte Seite 21" width="4419" height="6250" loading="lazy" decoding="async" data-page="21">
+            <figcaption><span>Seite 21</span><span>Speisekarte</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt" aria-labelledby="contact-title">
+      <div class="contact__inner">
+        <div class="contact__grid">
+          <div class="contact__panel">
+            <h2 class="script" id="contact-title">Kontakt</h2>
+            <p>Sushi, Wok und Bowls mit frischen vietnamesischen Aromen in Siegen.</p>
+            <div class="hours" aria-label="Öffnungszeiten">
+              <div><span>Dienstag - Donnerstag</span><span>11:00 - 15:00 & 17:00 - 21:00</span></div>
+              <div><span>Freitag - Sonntag</span><span>11:30 - 22:00</span></div>
+              <div><span>Montag</span><span>Ruhetag</span></div>
+            </div>
+            <div class="hero__actions" style="position: static;">
+              <a class="button button--primary" href="tel:+4927170305194">☎ Anrufen</a>
+              <a class="button button--ghost" href="https://maps.app.goo.gl/MzKq6xeMq3d4tKkK8" target="_blank" rel="noopener">Route öffnen</a>
+            </div>
+            <p style="margin-top: 24px;">Eiserntalstraße 35, 57080 Siegen<br>10% Rabatt bei Selbstabholung</p>
+          </div>
+          <iframe
+            class="map-frame"
+            title="Karte: Bamboo Bowl 57, Eiserntalstraße 35, 57080 Siegen"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Eiserntalstra%C3%9Fe%2035%2C%2057080%20Siegen&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-phone" href="tel:+4927170305194" aria-label="Bamboo Bowl 57 anrufen">☎</a>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span><strong>Bamboo Bowl 57</strong> · Sushi, Wok & Bowls</span>
+      <span>Eiserntalstraße 35, 57080 Siegen</span>
+      <span class="footer__copyright">© Copyright Hoangcaster</span>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="menu-lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox__bar">
+      <span id="lightbox-title">Speisekarte</span>
+      <div class="lightbox__controls">
+        <button class="lightbox__control" type="button" data-prev aria-label="Vorherige Seite" title="Vorherige Seite">‹</button>
+        <button class="lightbox__control" type="button" data-next aria-label="Nächste Seite" title="Nächste Seite">›</button>
+        <button class="lightbox__control" type="button" data-close aria-label="Schließen" title="Schließen">×</button>
+      </div>
+    </div>
+    <div class="lightbox__canvas">
+      <img src="Menu mới/1.png" alt="" width="4419" height="6250" data-lightbox-image>
+    </div>
+  </dialog>
+
+  <script>
+    (() => {
+      const menuPages = Array.from(document.querySelectorAll(".menu-page"));
+      const menuButtons = Array.from(document.querySelectorAll("[data-menu-target]"));
+      const pageImages = menuPages.map((page) => page.querySelector("img"));
+      const dialog = document.getElementById("menu-lightbox");
+      const lightboxImage = dialog.querySelector("[data-lightbox-image]");
+      const title = document.getElementById("lightbox-title");
+      let currentIndex = 0;
+
+      const showMenuPage = (index) => {
+        const activeIndex = (index + menuPages.length) % menuPages.length;
+
+        menuPages.forEach((page, pageIndex) => {
+          page.classList.toggle("is-active", pageIndex === activeIndex);
+        });
+
+        menuButtons.forEach((button, buttonIndex) => {
+          if (buttonIndex === activeIndex) {
+            button.setAttribute("aria-current", "page");
+          } else {
+            button.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      const showLightboxPage = (index) => {
+        currentIndex = (index + pageImages.length) % pageImages.length;
+        const selected = pageImages[currentIndex];
+        lightboxImage.src = selected.getAttribute("src");
+        lightboxImage.alt = selected.alt;
+        title.textContent = `Speisekarte · Seite ${selected.dataset.page}`;
+      };
+
+      menuButtons.forEach((button, index) => {
+        button.addEventListener("click", () => showMenuPage(index));
+      });
+
+      pageImages.forEach((image, index) => {
+        image.addEventListener("click", () => {
+          showLightboxPage(index);
+          if (typeof dialog.showModal === "function") {
+            dialog.showModal();
+          } else {
+            dialog.setAttribute("open", "");
+          }
+        });
+      });
+
+      dialog.querySelector("[data-close]").addEventListener("click", () => dialog.close());
+      dialog.querySelector("[data-prev]").addEventListener("click", () => showLightboxPage(currentIndex - 1));
+      dialog.querySelector("[data-next]").addEventListener("click", () => showLightboxPage(currentIndex + 1));
+
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (!dialog.open) return;
+        if (event.key === "ArrowLeft") showLightboxPage(currentIndex - 1);
+        if (event.key === "ArrowRight") showLightboxPage(currentIndex + 1);
+      });
+    })();
+  </script>
+</body>
+</html>
