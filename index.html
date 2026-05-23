@@ -632,6 +632,42 @@
       outline: none;
     }
 
+    .menu-viewer {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 660px) 44px;
+      align-items: center;
+      gap: 18px;
+      width: min(820px, 100%);
+      margin: 0 auto;
+    }
+
+    .menu-arrow {
+      width: 44px;
+      height: 44px;
+      display: inline-grid;
+      place-items: center;
+      color: var(--forest);
+      border: 1px solid rgba(249, 204, 114, 0.72);
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22);
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .menu-arrow:hover,
+    .menu-arrow:focus-visible {
+      color: var(--gold);
+      background: var(--forest-ink);
+      outline: none;
+      transform: translateY(-2px);
+    }
+
     .menu-grid {
       position: relative;
       z-index: 1;
@@ -642,6 +678,17 @@
       background: #0f2118;
       border: 1px solid rgba(249, 204, 114, 0.18);
       box-shadow: var(--shadow);
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    .menu-grid.is-dragging {
+      cursor: grabbing;
+    }
+
+    .menu-grid:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 8px;
     }
 
     .menu-page {
@@ -671,6 +718,11 @@
       cursor: zoom-in;
       box-shadow: 0 14px 26px rgba(0, 0, 0, 0.22);
       background: var(--forest-ink);
+      -webkit-user-drag: none;
+    }
+
+    .menu-grid.is-dragging .menu-page img {
+      cursor: grabbing;
     }
 
     .menu-page figcaption {
@@ -1073,6 +1125,35 @@
         padding: 94px 0 82px;
       }
 
+      .menu-viewer {
+        width: min(660px, 100%);
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .menu-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 3;
+        width: 42px;
+        height: 42px;
+        transform: translateY(-50%);
+        font-size: 1.8rem;
+      }
+
+      .menu-arrow:hover,
+      .menu-arrow:focus-visible {
+        transform: translateY(-50%);
+      }
+
+      .menu-arrow--prev {
+        left: 8px;
+      }
+
+      .menu-arrow--next {
+        right: 8px;
+      }
+
       .menu-grid {
         grid-template-columns: 1fr;
       }
@@ -1270,7 +1351,9 @@
           </nav>
         </div>
 
-        <div class="menu-grid">
+        <div class="menu-viewer">
+          <button class="menu-arrow menu-arrow--prev" type="button" data-menu-prev aria-label="Vorherige Speisekartenseite">&lsaquo;</button>
+          <div class="menu-grid" role="region" aria-label="Aktuelle Speisekartenseite" aria-live="polite" tabindex="0">
           <figure class="menu-page is-active" id="menu-1">
             <img src="Menu mới/1.png" alt="Speisekarte Seite 1" width="4419" height="6250" loading="lazy" decoding="async" data-page="1">
             <figcaption><span>Seite 1</span><span>Öffnungszeiten</span></figcaption>
@@ -1355,6 +1438,8 @@
             <img src="Menu mới/21.png" alt="Speisekarte Seite 21" width="4419" height="6250" loading="lazy" decoding="async" data-page="21">
             <figcaption><span>Seite 21</span><span>Speisekarte</span></figcaption>
           </figure>
+          </div>
+          <button class="menu-arrow menu-arrow--next" type="button" data-menu-next aria-label="N&auml;chste Speisekartenseite">&rsaquo;</button>
         </div>
       </div>
     </section>
@@ -1416,14 +1501,23 @@
     (() => {
       const menuPages = Array.from(document.querySelectorAll(".menu-page"));
       const menuButtons = Array.from(document.querySelectorAll("[data-menu-target]"));
+      const menuGrid = document.querySelector(".menu-grid");
+      const menuPrevButton = document.querySelector("[data-menu-prev]");
+      const menuNextButton = document.querySelector("[data-menu-next]");
       const pageImages = menuPages.map((page) => page.querySelector("img"));
       const dialog = document.getElementById("menu-lightbox");
       const lightboxImage = dialog.querySelector("[data-lightbox-image]");
       const title = document.getElementById("lightbox-title");
+      let menuIndex = 0;
       let currentIndex = 0;
+      let dragPointerId = null;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let suppressMenuClick = false;
 
       const showMenuPage = (index) => {
         const activeIndex = (index + menuPages.length) % menuPages.length;
+        menuIndex = activeIndex;
 
         menuPages.forEach((page, pageIndex) => {
           page.classList.toggle("is-active", pageIndex === activeIndex);
@@ -1450,8 +1544,73 @@
         button.addEventListener("click", () => showMenuPage(index));
       });
 
+      menuPrevButton.addEventListener("click", () => showMenuPage(menuIndex - 1));
+      menuNextButton.addEventListener("click", () => showMenuPage(menuIndex + 1));
+
+      menuGrid.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          showMenuPage(menuIndex - 1);
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          showMenuPage(menuIndex + 1);
+        }
+      });
+
+      menuGrid.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" && event.button !== 0) return;
+
+        dragPointerId = event.pointerId;
+        dragStartX = event.clientX;
+        dragStartY = event.clientY;
+        menuGrid.classList.add("is-dragging");
+
+        if (typeof menuGrid.setPointerCapture === "function") {
+          menuGrid.setPointerCapture(event.pointerId);
+        }
+      });
+
+      menuGrid.addEventListener("pointerup", (event) => {
+        if (dragPointerId !== event.pointerId) return;
+
+        const deltaX = event.clientX - dragStartX;
+        const deltaY = event.clientY - dragStartY;
+        const movedEnoughToClickGuard = Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10;
+        const isHorizontalSwipe = Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.25;
+
+        if (movedEnoughToClickGuard) {
+          suppressMenuClick = true;
+          window.setTimeout(() => {
+            suppressMenuClick = false;
+          }, 350);
+        }
+
+        if (isHorizontalSwipe) {
+          showMenuPage(menuIndex + (deltaX < 0 ? 1 : -1));
+          event.preventDefault();
+        }
+
+        dragPointerId = null;
+        menuGrid.classList.remove("is-dragging");
+      });
+
+      menuGrid.addEventListener("pointercancel", () => {
+        dragPointerId = null;
+        menuGrid.classList.remove("is-dragging");
+      });
+
       pageImages.forEach((image, index) => {
-        image.addEventListener("click", () => {
+        image.draggable = false;
+        image.addEventListener("dragstart", (event) => event.preventDefault());
+
+        image.addEventListener("click", (event) => {
+          if (suppressMenuClick) {
+            event.preventDefault();
+            suppressMenuClick = false;
+            return;
+          }
+
           showLightboxPage(index);
           if (typeof dialog.showModal === "function") {
             dialog.showModal();
