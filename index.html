@@ -63,16 +63,41 @@
       min-height: 940px;
       overflow: hidden;
       color: #fff;
-      background: var(--forest);
+      background:
+        radial-gradient(ellipse 88% 48% at 8% 92%, rgba(20, 96, 69, 0.74), transparent 60%),
+        linear-gradient(150deg, #b9dfb0 0 36%, #0d4b36 36.5% 100%);
     }
 
     .hero::before {
       content: "";
       position: absolute;
+      z-index: 0;
+      top: -150px;
+      left: -10%;
+      width: 118%;
+      height: 720px;
+      background:
+        radial-gradient(ellipse 42% 34% at 25% 30%, rgba(225, 245, 215, 0.56), transparent 62%),
+        radial-gradient(ellipse 50% 34% at 76% 38%, rgba(137, 194, 126, 0.32), transparent 66%),
+        radial-gradient(ellipse 60% 48% at 46% 70%, rgba(204, 235, 196, 0.48), transparent 70%),
+        linear-gradient(135deg, #c1e6b8 0%, #a9d59f 58%, #bde2b4 100%);
+      border-radius: 0 0 58% 42% / 0 0 56% 72%;
+      transform: rotate(-2.5deg);
+      transform-origin: 50% 0;
+      box-shadow: inset 0 -34px 70px rgba(255, 255, 255, 0.16);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
       inset: 0;
       background:
-        radial-gradient(circle at 21% 36%, rgba(166, 207, 156, 0.10), transparent 23%),
-        radial-gradient(circle at 76% 25%, rgba(249, 204, 114, 0.10), transparent 25%);
+        radial-gradient(ellipse 58% 34% at 15% 22%, rgba(234, 248, 226, 0.28), transparent 66%),
+        radial-gradient(ellipse 40% 28% at 62% 18%, rgba(123, 181, 108, 0.18), transparent 62%),
+        radial-gradient(ellipse 52% 32% at 76% 48%, rgba(219, 243, 210, 0.16), transparent 68%);
+      mix-blend-mode: soft-light;
       pointer-events: none;
     }
 
@@ -93,12 +118,25 @@
       padding-top: 28px;
     }
 
-    .brand-logo {
-      width: 116px;
-      height: 116px;
+    .brand-mark {
+      width: 124px;
+      height: 124px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
       border-radius: 50%;
-      object-fit: cover;
-      filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.26));
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 42%, #f4f1b7 0 52%, #bfe3ae 53% 100%);
+      box-shadow: 0 16px 26px rgba(4, 36, 24, 0.22);
+    }
+
+    .brand-logo {
+      width: 112px;
+      height: 112px;
+      max-width: none;
+      border-radius: 50%;
+      object-fit: contain;
     }
 
     .nav-link {
@@ -106,11 +144,13 @@
       align-items: center;
       justify-content: center;
       min-height: 42px;
-      padding: 8px 16px;
+      padding: 12px 24px;
       color: #fff;
       font-size: 1rem;
       font-weight: 850;
-      border-radius: var(--radius);
+      border-radius: 999px;
+      background: var(--forest-dark);
+      box-shadow: 0 14px 24px rgba(4, 36, 24, 0.18);
     }
 
     .nav-link:hover,
@@ -404,11 +444,12 @@
     }
 
     .about__deco--logo {
-      width: 104px;
-      height: 104px;
+      width: 118px;
+      height: 118px;
+      max-width: none;
       border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+      object-fit: contain;
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.18));
     }
 
     .about__deco.logo-a {
@@ -834,6 +875,14 @@
         min-height: 1040px;
       }
 
+      .hero::before {
+        top: -110px;
+        left: -24%;
+        width: 148%;
+        height: 640px;
+        border-radius: 0 0 66% 34% / 0 0 48% 70%;
+      }
+
       .hero__nav,
       .hero__stage {
         width: min(1120px, calc(100% - 32px));
@@ -923,9 +972,14 @@
         padding-top: 16px;
       }
 
+      .brand-mark {
+        width: 88px;
+        height: 88px;
+      }
+
       .brand-logo {
-        width: 78px;
-        height: 78px;
+        width: 80px;
+        height: 80px;
       }
 
       .hero__stage {
@@ -1074,8 +1128,8 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__nav">
-        <a href="#top" aria-label="Bamboo Bowl 57 Startseite">
-          <img class="brand-logo" src="logo.jpg" alt="Bamboo Bowl 57 Logo" width="1284" height="1284" fetchpriority="high">
+        <a class="brand-mark" href="#top" aria-label="Bamboo Bowl 57 Startseite">
+          <img class="brand-logo" src="assets/logo-circle.png" alt="Bamboo Bowl 57 Logo" width="1024" height="1024" fetchpriority="high">
         </a>
         <a class="nav-link" href="#speisekarte">Menu</a>
       </div>
@@ -1113,8 +1167,8 @@
     </section>
 
     <section class="about" id="ueber-uns" aria-labelledby="about-title">
-      <img class="about__deco about__deco--logo logo-a" src="logo.jpg" alt="" width="1284" height="1284" loading="lazy">
-      <img class="about__deco about__deco--logo logo-b" src="logo.jpg" alt="" width="1284" height="1284" loading="lazy">
+      <img class="about__deco about__deco--logo logo-a" src="assets/logo-circle.png" alt="" width="1024" height="1024" loading="lazy">
+      <img class="about__deco about__deco--logo logo-b" src="assets/logo-circle.png" alt="" width="1024" height="1024" loading="lazy">
       <div class="about__deco about__bamboo" aria-hidden="true">
         <span class="cane" style="--x: 86px; --h: 340px; --r: -5deg;"></span>
         <span class="cane" style="--x: 138px; --h: 420px; --r: 3deg;"></span>
