@@ -139,6 +139,14 @@
       object-fit: contain;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .nav-link {
       display: inline-flex;
       align-items: center;
@@ -228,6 +236,12 @@
     .button:focus-visible {
       transform: translateY(-1px);
       outline: none;
+    }
+
+    .button:disabled {
+      cursor: not-allowed;
+      opacity: 0.58;
+      transform: none;
     }
 
     .button--primary {
@@ -737,6 +751,271 @@
       padding-top: 10px;
     }
 
+    .order-panel {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 410px);
+      gap: clamp(22px, 3vw, 36px);
+      margin-top: 54px;
+      padding: clamp(22px, 4vw, 42px);
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid rgba(249, 204, 114, 0.34);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .order-panel h3,
+    .order-panel h4,
+    .order-panel p {
+      margin: 0;
+    }
+
+    .order-panel h3 {
+      color: var(--forest);
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+      line-height: 1.05;
+    }
+
+    .order-panel h4 {
+      color: var(--forest);
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .order-kicker {
+      color: #906425;
+      font-size: 0.82rem;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .order-picker,
+    .order-summary {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+    }
+
+    .order-help {
+      max-width: 660px;
+      color: var(--muted);
+      font-weight: 680;
+    }
+
+    .order-control,
+    .customer-fields {
+      display: grid;
+      gap: 12px;
+    }
+
+    .order-control > label,
+    .custom-order__grid label,
+    .customer-fields label,
+    .discount-toggle {
+      color: var(--forest-ink);
+      font-size: 0.9rem;
+      font-weight: 850;
+    }
+
+    .custom-order__grid label,
+    .customer-fields label {
+      display: grid;
+      gap: 6px;
+    }
+
+    .order-input-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 86px auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .custom-order {
+      display: grid;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(6, 68, 47, 0.14);
+    }
+
+    .custom-order__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) 110px 86px auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .order-panel select,
+    .order-panel input,
+    .order-panel textarea {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid rgba(6, 68, 47, 0.22);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+      font-weight: 680;
+    }
+
+    .order-panel textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .order-panel select:focus,
+    .order-panel input:focus,
+    .order-panel textarea:focus {
+      border-color: var(--forest);
+      outline: 3px solid rgba(249, 204, 114, 0.42);
+    }
+
+    .qty-input {
+      text-align: center;
+    }
+
+    .order-add {
+      min-width: 52px;
+      height: 46px;
+      padding: 0 16px;
+      border-radius: var(--radius);
+      border-color: rgba(6, 68, 47, 0.24);
+    }
+
+    .order-summary {
+      padding: 20px;
+      border: 1px solid rgba(6, 68, 47, 0.16);
+      border-radius: var(--radius);
+      background: #f8f3e8;
+    }
+
+    .order-summary__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .order-count {
+      min-width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      color: var(--forest-dark);
+      border-radius: 50%;
+      background: var(--gold);
+      font-weight: 950;
+    }
+
+    .order-items {
+      display: grid;
+      gap: 10px;
+      min-height: 58px;
+    }
+
+    .order-empty {
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .order-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(6, 68, 47, 0.14);
+    }
+
+    .order-item:last-child {
+      border-bottom: 0;
+    }
+
+    .order-item__name {
+      color: var(--forest-ink);
+      font-weight: 920;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    .order-item__meta,
+    .order-item__total {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 760;
+    }
+
+    .order-item__actions {
+      display: grid;
+      grid-template-columns: repeat(3, 34px);
+      gap: 6px;
+      align-content: start;
+    }
+
+    .order-step {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(6, 68, 47, 0.22);
+      border-radius: var(--radius);
+      color: var(--forest);
+      background: #fff;
+      cursor: pointer;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .order-step:hover,
+    .order-step:focus-visible {
+      color: var(--forest-dark);
+      background: var(--gold);
+      outline: none;
+    }
+
+    .invoice-totals {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-top: 12px;
+      border-top: 2px solid rgba(6, 68, 47, 0.14);
+    }
+
+    .invoice-totals div {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .invoice-totals .invoice-total {
+      color: var(--forest);
+      font-size: 1.25rem;
+      font-weight: 950;
+    }
+
+    .discount-toggle {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.35;
+    }
+
+    .discount-toggle input {
+      width: 18px;
+      min-height: 18px;
+      margin-top: 2px;
+      accent-color: var(--forest);
+    }
+
+    .customer-fields {
+      padding-top: 12px;
+      border-top: 1px solid rgba(6, 68, 47, 0.14);
+    }
+
     .contact {
       position: relative;
       padding: 100px 0;
@@ -1012,6 +1291,14 @@
       .page-jump {
         justify-content: flex-start;
       }
+
+      .order-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .custom-order__grid {
+        grid-template-columns: minmax(0, 1fr) 110px 86px auto;
+      }
     }
 
     @media (max-width: 680px) {
@@ -1032,6 +1319,16 @@
       .brand-logo {
         width: 80px;
         height: 80px;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-link {
+        min-height: 38px;
+        padding: 10px 14px;
+        font-size: 0.9rem;
       }
 
       .hero__stage {
@@ -1163,6 +1460,20 @@
         border-right: 0;
       }
 
+      .order-panel {
+        margin-top: 34px;
+        padding: 20px;
+      }
+
+      .order-input-row,
+      .custom-order__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .order-add {
+        width: 100%;
+      }
+
       .contact {
         padding: 70px 0;
       }
@@ -1185,8 +1496,7 @@
       }
 
       .floating-phone {
-        right: 16px;
-        bottom: 16px;
+        display: none;
       }
     }
 
@@ -1212,7 +1522,10 @@
         <a class="brand-mark" href="#top" aria-label="Bamboo Bowl 57 Startseite">
           <img class="brand-logo" src="assets/logo-circle.png" alt="Bamboo Bowl 57 Logo" width="1024" height="1024" fetchpriority="high">
         </a>
-        <a class="nav-link" href="#speisekarte">Menu</a>
+        <div class="nav-links">
+          <a class="nav-link" href="#speisekarte">Menu</a>
+          <a class="nav-link" href="#bestellen">Bestellen</a>
+        </div>
       </div>
 
       <div class="hero__stage">
@@ -1441,6 +1754,85 @@
           </div>
           <button class="menu-arrow menu-arrow--next" type="button" data-menu-next aria-label="N&auml;chste Speisekartenseite">&rsaquo;</button>
         </div>
+
+        <section class="order-panel" id="bestellen" aria-labelledby="order-title">
+          <div class="order-picker">
+            <p class="order-kicker">Online bestellen</p>
+            <h3 class="script" id="order-title">Bestellung vorbereiten</h3>
+            <p class="order-help">Sushi, Bowls, Wokgerichte und Getränke für Ihre Abholung bei Bamboo Bowl 57.</p>
+
+            <div class="order-control">
+              <label for="order-menu-item">Gericht aus der Schnellliste</label>
+              <div class="order-input-row">
+                <select id="order-menu-item" data-menu-select></select>
+                <input class="qty-input" id="order-menu-qty" type="number" min="1" max="99" value="1" inputmode="numeric" data-menu-qty aria-label="Menge">
+                <button class="button button--primary order-add" type="button" data-add-menu aria-label="Ausgewähltes Gericht hinzufügen">+</button>
+              </div>
+            </div>
+
+            <div class="custom-order">
+              <h4>Anderes Gericht aus der Speisekarte</h4>
+              <div class="custom-order__grid">
+                <label>
+                  Name oder Nummer
+                  <input type="text" data-custom-name placeholder="z.B. B1 Bamboo Lachs Deluxe">
+                </label>
+                <label>
+                  Preis
+                  <input type="text" inputmode="decimal" data-custom-price placeholder="12,90">
+                </label>
+                <label>
+                  Menge
+                  <input class="qty-input" type="number" min="1" max="99" value="1" inputmode="numeric" data-custom-qty>
+                </label>
+                <button class="button button--primary order-add" type="button" data-add-custom>+</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="order-summary" aria-label="Rechnung">
+            <div class="order-summary__head">
+              <h3 class="script">Rechnung</h3>
+              <span class="order-count" data-order-count>0</span>
+            </div>
+
+            <div class="order-items" data-order-items>
+              <p class="order-empty" data-order-empty>Noch keine Speisen ausgewählt.</p>
+            </div>
+
+            <label class="discount-toggle">
+              <input type="checkbox" data-pickup-discount checked>
+              10% Rabatt bei Selbstabholung berechnen
+            </label>
+
+            <dl class="invoice-totals">
+              <div><dt>Zwischensumme</dt><dd data-subtotal>0,00&nbsp;€</dd></div>
+              <div><dt>Rabatt</dt><dd data-discount>0,00&nbsp;€</dd></div>
+              <div class="invoice-total"><dt>Gesamt</dt><dd data-total>0,00&nbsp;€</dd></div>
+            </dl>
+
+            <div class="customer-fields">
+              <label>
+                Name
+                <input type="text" data-customer-name placeholder="Ihr Name">
+              </label>
+              <label>
+                Telefonnummer
+                <input type="tel" data-customer-phone placeholder="Ihre Telefonnummer">
+              </label>
+              <label>
+                Gewünschte Abholzeit
+                <input type="text" data-pickup-time placeholder="z.B. 18:30 Uhr">
+              </label>
+              <label>
+                Hinweis
+                <textarea data-order-note placeholder="z.B. ohne Koriander, extra scharf"></textarea>
+              </label>
+            </div>
+
+            <button class="button button--primary" type="button" data-send-order disabled>Rechnung per WhatsApp senden</button>
+          </aside>
+        </section>
       </div>
     </section>
 
@@ -1633,6 +2025,446 @@
         if (event.key === "ArrowLeft") showLightboxPage(currentIndex - 1);
         if (event.key === "ArrowRight") showLightboxPage(currentIndex + 1);
       });
+
+      const rawOrderCatalog = [
+        { category: "Vorspeisen", code: "1", name: "Crispy Frühlingsrollen (2 Stk.)", price: 5.9 },
+        { category: "Vorspeisen", code: "2a", name: "Vietnamese Sommerrollen Tofu", price: 4.9 },
+        { category: "Vorspeisen", code: "2b", name: "Vietnamese Sommerrollen Hähnchen", price: 5.9 },
+        { category: "Vorspeisen", code: "2c", name: "Vietnamese Sommerrollen Garnelen", price: 6.9 },
+        { category: "Vorspeisen", code: "3", name: "Gyoza (5 Stk.)", price: 5.9 },
+        { category: "Vorspeisen", code: "4", name: "Crispy Garnelen Tempura (3 Stk.)", price: 6.9 },
+        { category: "Suppen", code: "5a", name: "Kokos Suppe Tofu", price: 4.9 },
+        { category: "Suppen", code: "5b", name: "Kokos Suppe Hähnchen", price: 5.9 },
+        { category: "Suppen", code: "5c", name: "Kokos Suppe Garnelen", price: 6.9 },
+        { category: "Suppen", code: "6a", name: "Miso Suppe Tofu", price: 4.9 },
+        { category: "Suppen", code: "6b", name: "Miso Suppe Garnelen", price: 5.9 },
+        { category: "Suppen", code: "6c", name: "Miso Suppe Lachs", price: 6.9 },
+        { category: "Vorspeisen", code: "7", name: "Crispy Chicken Wings (5 Stk.)", price: 7.5 },
+        { category: "Salate", code: "8", name: "Vietnamesischer Rindfleischsalat", price: 8.9 },
+        { category: "Salate", code: "9", name: "Mango Salat", price: 6.5 },
+        { category: "Salate", code: "10a", name: "Glasnudelsalat Tofu", price: 4.9 },
+        { category: "Salate", code: "10b", name: "Glasnudelsalat Hähnchen", price: 5.5 },
+        { category: "Salate", code: "10c", name: "Glasnudelsalat Garnelen", price: 6.5 },
+        { category: "Salate", code: "11", name: "Wakame Salat", price: 5.9 },
+        { category: "Vorspeisen", code: "12", name: "Gebackene Wantan (5 Stk.)", price: 6.5 },
+        { category: "Vorspeisen", code: "13", name: "Edamame", price: 5.9 },
+        { category: "Vorspeisen", code: "14", name: "Mini Frühlingsrollen (6 Stk.)", price: 4.9 },
+        { category: "Bowls", code: "27", name: "Sake Bowl", price: 14.9 },
+        { category: "Bowls", code: "28", name: "Hähnchen Bowl", price: 13.9 },
+        { category: "Bowls", code: "29", name: "Veggie Bowl", price: 11.9 },
+        { category: "Bowls", code: "31", name: "Crispy Chicken Bowl", price: 12.9 },
+        { category: "Bowls", code: "32", name: "Ebi Bowl", price: 14.9 },
+        { category: "Bowls", code: "33", name: "Ebi Tempura Bowl", price: 16.9 },
+        { category: "Bowls", code: "34", name: "Unagi Bowl", price: 18.9 },
+        { category: "Hauptspeisen", code: "17a", name: "Gebratene Nudeln mit Tofu", price: 10.9 },
+        { category: "Hauptspeisen", code: "17b", name: "Gebratene Nudeln mit paniertem Hähnchen", price: 12.9 },
+        { category: "Hauptspeisen", code: "17c", name: "Gebratene Nudeln mit Garnelen", price: 13.9 },
+        { category: "Hauptspeisen", code: "17d", name: "Gebratene Nudeln mit Ente kross", price: 15.9 },
+        { category: "Hauptspeisen", code: "18a", name: "Gebratener Reis mit Tofu", price: 10.9 },
+        { category: "Hauptspeisen", code: "18b", name: "Gebratener Reis mit paniertem Hähnchen", price: 12.9 },
+        { category: "Hauptspeisen", code: "18c", name: "Gebratener Reis mit Garnelen", price: 13.9 },
+        { category: "Hauptspeisen", code: "18d", name: "Gebratener Reis mit Ente kross", price: 15.9 },
+        { category: "Hauptspeisen", code: "19a", name: "Gebratene Udon Nudeln mit Tofu", price: 11.9 },
+        { category: "Hauptspeisen", code: "19b", name: "Gebratene Udon Nudeln mit paniertem Hähnchen", price: 13.9 },
+        { category: "Hauptspeisen", code: "19c", name: "Gebratene Udon Nudeln mit Rindfleisch", price: 15.9 },
+        { category: "Hauptspeisen", code: "19d", name: "Gebratene Udon Nudeln mit Ente kross", price: 16.9 },
+        { category: "Hauptspeisen", code: "20a", name: "Curry Soße mit Tofu", price: 10.9 },
+        { category: "Hauptspeisen", code: "20b", name: "Curry Soße mit paniertem Hähnchen", price: 12.9 },
+        { category: "Hauptspeisen", code: "20c", name: "Curry Soße mit Garnelen", price: 13.9 },
+        { category: "Hauptspeisen", code: "20d", name: "Curry Soße mit Ente kross", price: 15.9 },
+        { category: "Hauptspeisen", code: "20e", name: "Curry Soße mit gegrilltem Lachs", price: 18.9 },
+        { category: "Hauptspeisen", code: "21a", name: "Mango Soße mit Tofu", price: 10.9 },
+        { category: "Hauptspeisen", code: "21b", name: "Mango Soße mit paniertem Hähnchen", price: 12.9 },
+        { category: "Hauptspeisen", code: "21c", name: "Mango Soße mit Garnelen", price: 13.9 },
+        { category: "Hauptspeisen", code: "21d", name: "Mango Soße mit Ente kross", price: 15.9 },
+        { category: "Hauptspeisen", code: "21e", name: "Mango Soße mit gegrilltem Lachs", price: 18.9 },
+        { category: "Hauptspeisen", code: "22a", name: "Dunkle Soße mit Tofu", price: 10.9 },
+        { category: "Hauptspeisen", code: "22b", name: "Dunkle Soße mit paniertem Hähnchen", price: 12.9 },
+        { category: "Hauptspeisen", code: "22c", name: "Dunkle Soße mit Rindfleisch", price: 14.9 },
+        { category: "Hauptspeisen", code: "22d", name: "Dunkle Soße mit Ente kross", price: 15.9 },
+        { category: "Hauptspeisen", code: "22e", name: "Dunkle Soße mit gegrilltem Lachs", price: 18.9 },
+        { category: "Suppen", code: "23a", name: "Pho Suppe Tofu", price: 10.9 },
+        { category: "Suppen", code: "23b", name: "Pho Suppe Hähnchen", price: 12.9 },
+        { category: "Suppen", code: "23c", name: "Pho Suppe Rind", price: 14.9 },
+        { category: "Hauptspeisen", code: "25", name: "Bun Nem Hanoi", price: 13.9 },
+        { category: "Hauptspeisen", code: "26", name: "Bun Bo Nam Bo", price: 14.9 },
+        { category: "Hauptspeisen", code: "28", name: "Gegrilltes Zitronengras-Hähnchen", price: 15.9 },
+        { category: "Hauptspeisen", code: "29", name: "Gegrillter Lachs", price: 18.9 },
+        { category: "Kinder & Dessert", code: "K1", name: "Chicken Nuggets mit Pommes", price: 6.9 },
+        { category: "Kinder & Dessert", code: "K2a", name: "Kinder Pho Hähnchen", price: 7.9 },
+        { category: "Kinder & Dessert", code: "K2b", name: "Kinder Pho Rindfleisch", price: 8.9 },
+        { category: "Kinder & Dessert", code: "K3", name: "Mini Gebratene Nudeln", price: 6.9 },
+        { category: "Kinder & Dessert", code: "001", name: "Gebackene Bananen", price: 4.9 },
+        { category: "Kinder & Dessert", code: "002", name: "Bananenpudding", price: 4.9 },
+        { category: "Kinder & Dessert", code: "003", name: "Mango Sticky Rice", price: 5.9 },
+        { category: "Kinder & Dessert", code: "005", name: "Mango Eis", price: 3.9 },
+        { category: "Nigiri", code: "N1", name: "Sake Nigiri", price: 5.9 },
+        { category: "Nigiri", code: "N2", name: "Ebi Nigiri", price: 5.5 },
+        { category: "Nigiri", code: "N3", name: "Unagi Nigiri", price: 7.5 },
+        { category: "Nigiri", code: "N4", name: "Tekka Nigiri", price: 6.5 },
+        { category: "Nigiri", code: "N5", name: "Sake Avocado Nigiri", price: 5.9 },
+        { category: "Nigiri", code: "N6", name: "Tamago Nigiri", price: 5.5 },
+        { category: "Nigiri", code: "N7", name: "Avocado Nigiri", price: 4.9 },
+        { category: "Nigiri", code: "N8", name: "Sake Aburi Nigiri", price: 6.9 },
+        { category: "Nigiri", code: "N9", name: "Nigiri Mix (10 Stk.)", price: 17.9 },
+        { category: "Nigiri", code: "N10", name: "Premium Nigiri Mix (10 Stk.)", price: 19.9 },
+        { category: "Maki", code: "M1", name: "Sake Maki", price: 5.9 },
+        { category: "Maki", code: "M2", name: "Tekka Maki", price: 6.9 },
+        { category: "Maki", code: "M3", name: "Ebi Tempura Maki", price: 6.9 },
+        { category: "Maki", code: "M4", name: "Avocado Maki", price: 5.5 },
+        { category: "Maki", code: "M5", name: "Kappa Maki", price: 4.9 },
+        { category: "Maki", code: "M6", name: "Sake Avocado Maki", price: 5.9 },
+        { category: "Maki", code: "M7", name: "Ebi Maki", price: 5.9 },
+        { category: "Maki", code: "M8", name: "Tamago Maki", price: 5.5 },
+        { category: "Maki", code: "M9", name: "Crispy Chicken Maki", price: 5.9 },
+        { category: "Maki", code: "M10", name: "Sake Tempura Maki", price: 6.9 },
+        { category: "Maki", code: "M11", name: "Futo Maki", price: 9.9 },
+        { category: "Maki", code: "M12", name: "Maki Mix (18 Stk.)", price: 13.9 },
+        { category: "Maki", code: "M13", name: "Crunchy Mix (18 Stk.)", price: 16.9 },
+        { category: "Inside Out Rolls", code: "I1", name: "California Roll", price: 9.9 },
+        { category: "Inside Out Rolls", code: "I2", name: "Alaska Roll", price: 10.9 },
+        { category: "Inside Out Rolls", code: "I3", name: "Crispy Chicken Roll", price: 10.9 },
+        { category: "Inside Out Rolls", code: "I4", name: "Philadelphia Roll", price: 10.9 },
+        { category: "Inside Out Rolls", code: "I5", name: "Vegetarische Roll", price: 8.9 },
+        { category: "Inside Out Rolls", code: "I6", name: "Ebi Tempura Roll", price: 11.9 },
+        { category: "Inside Out Rolls", code: "I7", name: "Sake Tempura Roll", price: 11.9 },
+        { category: "Inside Out Rolls", code: "I8", name: "Spicy Tuna Roll", price: 12.9 },
+        { category: "Inside Out Rolls", code: "I9", name: "Inside Out Mix (16 Stk.)", price: 18.9 },
+        { category: "Inside Out Rolls", code: "I10", name: "Crunchy Mix (16 Stk.)", price: 20.9 },
+        { category: "Special Rolls", code: "S8", name: "Fire Paragon Roll", price: 15.9 },
+        { category: "Special Rolls", code: "S9", name: "Bamboo Tiger Deluxe", price: 15.9 },
+        { category: "Special Rolls", code: "S10", name: "Aal Roll", price: 17.9 },
+        { category: "Special Rolls", code: "S11", name: "Dragon Flightlight", price: 16.9 },
+        { category: "Sashimi", code: "S1", name: "Lachs Sashimi", price: 10.9 },
+        { category: "Sashimi", code: "S2", name: "Aburi Lachs Sashimi", price: 11.9 },
+        { category: "Sashimi", code: "S3", name: "Thunfisch Sashimi", price: 11.9 },
+        { category: "Sashimi", code: "S4", name: "Aburi Thunfisch Sashimi", price: 12.9 },
+        { category: "Sashimi", code: "S5", name: "Sashimi Mix", price: 12.9 },
+        { category: "Sashimi", code: "S6", name: "Aburi Mix Sashimi", price: 13.9 },
+        { category: "Fried Maki", code: "T1", name: "Sake Fried Maki", price: 7.9 },
+        { category: "Fried Maki", code: "T2", name: "Ebi Fried Maki", price: 8.9 },
+        { category: "Fried Maki", code: "T3", name: "Crispy Chicken Fried Maki", price: 7.9 },
+        { category: "Fried Maki", code: "T4", name: "Tuna Fried Maki", price: 8.9 },
+        { category: "Fried Maki", code: "T5", name: "Avocado Fried Maki (Veggie)", price: 6.9 },
+        { category: "Fried Maki", code: "T6", name: "Chicken Fried Maki", price: 6.9 },
+        { category: "Fried Maki", code: "T7", name: "Fried Maki Mix (12 Stk.)", price: 13.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B1", name: "Bamboo Lachs Deluxe", price: 12.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B2", name: "Bamboo Crispy Chicken", price: 11.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B3", name: "Bamboo Ebi Tempura", price: 13.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B4", name: "Bamboo Tuna - Frisch", price: 13.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B5", name: "Bamboo Tuna - Mild", price: 12.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B6", name: "Bamboo Duck Roll", price: 13.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B7", name: "Bamboo Salmon Classic", price: 11.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B8", name: "Bamboo Veggie Roll", price: 10.9 },
+        { category: "Bamboo Crunchy Rolls", code: "B9", name: "Bamboo Mix (16 Stk.)", price: 19.9 },
+        { category: "Sushi Menüs", code: "SET 1", name: "Happy Menü", price: 16.9 },
+        { category: "Sushi Menüs", code: "SET 2", name: "Crispy Chicken Menü", price: 28.9 },
+        { category: "Sushi Menüs", code: "SET 3", name: "Osaka Menü", price: 14.9 },
+        { category: "Sushi Menüs", code: "SET 4", name: "Veggie Menü", price: 15.9 },
+        { category: "Sushi Menüs", code: "SET 5", name: "Princes Menü", price: 21.9 },
+        { category: "Sushi Menüs", code: "SET 6", name: "Lachs Menü", price: 24.9 },
+        { category: "Sushi Menüs", code: "SET 7", name: "Bamboo Rolls Menü", price: 25.9 },
+        { category: "Sushi Menüs", code: "SET 8", name: "König Menü", price: 29.9 },
+        { category: "Sushi Menüs", code: "SET 9", name: "Family Menü", price: 45.9 },
+        { category: "Sushi Menüs", code: "SET 10", name: "Party Menü", price: 69.9 },
+        { category: "Sushi Menüs", code: "SET 11", name: "Bamboo Party Menü", price: 109.9 },
+        { category: "Getränke", code: "100", name: "Coca-Cola / Zero / Fanta / Sprite 0,4 l", price: 3.3 },
+        { category: "Getränke", code: "101", name: "Spezi 0,4 l", price: 3.8 },
+        { category: "Getränke", code: "102", name: "Apfelsaft naturtrüb 0,4 l", price: 3.8 },
+        { category: "Getränke", code: "103", name: "Apfelschorle 0,4 l", price: 3.8 },
+        { category: "Getränke", code: "104", name: "Ananassaft 0,4 l", price: 3.8 },
+        { category: "Getränke", code: "105", name: "Ananasschorle 0,4 l", price: 3.8 },
+        { category: "Getränke", code: "106", name: "Ginger Ale 0,4 l", price: 4.2 },
+        { category: "Getränke", code: "107a", name: "Stillwasser 0,4 l", price: 3.3 },
+        { category: "Getränke", code: "107b", name: "Stillwasser 0,75 l", price: 4.5 },
+        { category: "Getränke", code: "108a", name: "Sprudelwasser / Tonic Water 0,4 l", price: 3.3 },
+        { category: "Getränke", code: "108b", name: "Sprudelwasser / Tonic Water 0,75 l", price: 5.5 },
+        { category: "Getränke", code: "110", name: "Frische Limonade", price: 4.9 },
+        { category: "Getränke", code: "111", name: "Passionfruit Lemonade", price: 4.9 },
+        { category: "Getränke", code: "112", name: "Kumquat Iced Tea", price: 4.9 },
+        { category: "Getränke", code: "113", name: "Mango Lassi", price: 4.9 },
+        { category: "Getränke", code: "114", name: "Avocado Lassi", price: 5.5 },
+        { category: "Getränke", code: "115", name: "Vietnamesischer Eiskaffee", price: 5.9 },
+        { category: "Tee & Eistee", code: "129", name: "Jasmintee", price: 3.5 },
+        { category: "Tee & Eistee", code: "130", name: "Grüner Tee", price: 3.5 },
+        { category: "Tee & Eistee", code: "131", name: "Frischer Ingwertee", price: 3.9 },
+        { category: "Tee & Eistee", code: "132", name: "Ingwer-Minze Tee", price: 3.9 },
+        { category: "Tee & Eistee", code: "133", name: "Zitronengras Tee", price: 3.9 },
+        { category: "Tee & Eistee", code: "134", name: "Limetten-Zitronengras Tee", price: 4.5 },
+        { category: "Tee & Eistee", code: "135", name: "Lychee Eistee", price: 4.9 },
+        { category: "Tee & Eistee", code: "136", name: "Mango Eistee", price: 4.9 },
+        { category: "Extras", code: "EX1", name: "Extra Tofu", price: 2 },
+        { category: "Extras", code: "EX2", name: "Extra Avocado", price: 2.5 },
+        { category: "Extras", code: "EX3", name: "Extra Hähnchen", price: 3 },
+        { category: "Extras", code: "EX4", name: "Extra Garnelen", price: 4 },
+        { category: "Extras", code: "EX5", name: "Extra Ente", price: 5 },
+        { category: "Extras", code: "EX6", name: "Extra Soße", price: 1.5 },
+        { category: "Extras", code: "EX7", name: "Reis / Sesamreis / Reisnudeln", price: 2.5 }
+      ];
+
+      const orderCatalog = rawOrderCatalog.map((item, index) => ({ ...item, id: `menu-${index}` }));
+      const catalogById = new Map(orderCatalog.map((item) => [item.id, item]));
+      const orderState = [];
+      const moneyFormatter = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" });
+      const whatsappNumber = "4927170305194";
+      const menuSelect = document.querySelector("[data-menu-select]");
+      const menuQty = document.querySelector("[data-menu-qty]");
+      const addMenuButton = document.querySelector("[data-add-menu]");
+      const customName = document.querySelector("[data-custom-name]");
+      const customPrice = document.querySelector("[data-custom-price]");
+      const customQty = document.querySelector("[data-custom-qty]");
+      const addCustomButton = document.querySelector("[data-add-custom]");
+      const orderItems = document.querySelector("[data-order-items]");
+      const orderCount = document.querySelector("[data-order-count]");
+      const subtotalOutput = document.querySelector("[data-subtotal]");
+      const discountOutput = document.querySelector("[data-discount]");
+      const totalOutput = document.querySelector("[data-total]");
+      const pickupDiscount = document.querySelector("[data-pickup-discount]");
+      const sendOrderButton = document.querySelector("[data-send-order]");
+      const customerName = document.querySelector("[data-customer-name]");
+      const customerPhone = document.querySelector("[data-customer-phone]");
+      const pickupTime = document.querySelector("[data-pickup-time]");
+      const orderNote = document.querySelector("[data-order-note]");
+
+      const formatMoney = (value) => moneyFormatter.format(value);
+      const formatInvoiceMoney = (value) => `${value.toFixed(2).replace(".", ",")} EUR`;
+      const getQuantity = (input) => {
+        const quantity = Number.parseInt(input?.value, 10);
+        return Number.isFinite(quantity) && quantity > 0 ? Math.min(quantity, 99) : 1;
+      };
+      const parseEuroValue = (value) => {
+        const trimmed = value.trim();
+        const normalized = trimmed.includes(",") ? trimmed.replace(/\./g, "").replace(",", ".") : trimmed;
+        const cleaned = normalized.replace(/[^\d.]/g, "");
+        const parsed = Number.parseFloat(cleaned);
+        return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+      };
+      const getCartTotals = () => {
+        const subtotal = orderState.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const discount = pickupDiscount?.checked ? subtotal * 0.1 : 0;
+        return { subtotal, discount, total: Math.max(subtotal - discount, 0) };
+      };
+      const getItemLabel = (item) => (item.code ? `${item.code} ${item.name}` : item.name);
+      const showInvalid = (input, message) => {
+        if (!input) return;
+        input.setCustomValidity(message);
+        input.reportValidity();
+        input.addEventListener("input", () => input.setCustomValidity(""), { once: true });
+      };
+
+      const populateOrderSelect = () => {
+        if (!menuSelect) return;
+
+        const placeholder = document.createElement("option");
+        placeholder.value = "";
+        placeholder.textContent = "Gericht wählen";
+        menuSelect.append(placeholder);
+
+        const categories = [...new Set(orderCatalog.map((item) => item.category))];
+        categories.forEach((category) => {
+          const group = document.createElement("optgroup");
+          group.label = category;
+
+          orderCatalog
+            .filter((item) => item.category === category)
+            .forEach((item) => {
+              const option = document.createElement("option");
+              option.value = item.id;
+              option.textContent = `${item.code} - ${item.name} · ${formatMoney(item.price)}`;
+              group.append(option);
+            });
+
+          menuSelect.append(group);
+        });
+      };
+
+      const addOrderItem = (item, quantity) => {
+        const existingItem = orderState.find((cartItem) => cartItem.id === item.id);
+
+        if (existingItem) {
+          existingItem.quantity = Math.min(existingItem.quantity + quantity, 99);
+        } else {
+          orderState.push({ ...item, quantity });
+        }
+
+        renderOrder();
+      };
+
+      const renderOrder = () => {
+        if (!orderItems) return;
+
+        orderItems.innerHTML = "";
+
+        if (orderState.length === 0) {
+          const empty = document.createElement("p");
+          empty.className = "order-empty";
+          empty.textContent = "Noch keine Speisen ausgewählt.";
+          orderItems.append(empty);
+        } else {
+          orderState.forEach((item, index) => {
+            const row = document.createElement("article");
+            row.className = "order-item";
+
+            const details = document.createElement("div");
+            const name = document.createElement("div");
+            const meta = document.createElement("div");
+            const total = document.createElement("div");
+
+            name.className = "order-item__name";
+            name.textContent = getItemLabel(item);
+            meta.className = "order-item__meta";
+            meta.textContent = `${item.quantity} x ${formatMoney(item.price)}`;
+            total.className = "order-item__total";
+            total.textContent = formatMoney(item.price * item.quantity);
+
+            details.append(name, meta, total);
+
+            const actions = document.createElement("div");
+            actions.className = "order-item__actions";
+
+            [
+              { action: "decrease", label: "-", text: "-" },
+              { action: "increase", label: "+", text: "+" },
+              { action: "remove", label: "Entfernen", text: "×" }
+            ].forEach((buttonConfig) => {
+              const button = document.createElement("button");
+              button.className = "order-step";
+              button.type = "button";
+              button.dataset.orderAction = buttonConfig.action;
+              button.dataset.orderIndex = String(index);
+              button.setAttribute("aria-label", buttonConfig.label);
+              button.textContent = buttonConfig.text;
+              actions.append(button);
+            });
+
+            row.append(details, actions);
+            orderItems.append(row);
+          });
+        }
+
+        const totals = getCartTotals();
+        const totalQuantity = orderState.reduce((sum, item) => sum + item.quantity, 0);
+        if (orderCount) orderCount.textContent = String(totalQuantity);
+        if (subtotalOutput) subtotalOutput.textContent = formatMoney(totals.subtotal);
+        if (discountOutput) discountOutput.textContent = totals.discount ? `-${formatMoney(totals.discount)}` : formatMoney(0);
+        if (totalOutput) totalOutput.textContent = formatMoney(totals.total);
+        if (sendOrderButton) sendOrderButton.disabled = orderState.length === 0;
+      };
+
+      const buildWhatsAppMessage = () => {
+        const totals = getCartTotals();
+        const lines = [
+          "Hallo Bamboo Bowl 57, ich möchte bestellen:",
+          ""
+        ];
+
+        orderState.forEach((item) => {
+          lines.push(`${item.quantity}x ${getItemLabel(item)} - ${formatInvoiceMoney(item.price)} = ${formatInvoiceMoney(item.price * item.quantity)}`);
+        });
+
+        lines.push("");
+        lines.push(`Zwischensumme: ${formatInvoiceMoney(totals.subtotal)}`);
+
+        if (totals.discount > 0) {
+          lines.push(`Rabatt Selbstabholung (10%): -${formatInvoiceMoney(totals.discount)}`);
+        }
+
+        lines.push(`Gesamt: ${formatInvoiceMoney(totals.total)}`);
+
+        const contactLines = [
+          ["Name", customerName?.value.trim()],
+          ["Telefon", customerPhone?.value.trim()],
+          ["Abholzeit", pickupTime?.value.trim()],
+          ["Hinweis", orderNote?.value.trim()]
+        ].filter(([, value]) => value);
+
+        if (contactLines.length > 0) {
+          lines.push("");
+          contactLines.forEach(([label, value]) => lines.push(`${label}: ${value}`));
+        }
+
+        return lines.join("\n");
+      };
+
+      if (menuSelect) {
+        populateOrderSelect();
+        renderOrder();
+
+        addMenuButton?.addEventListener("click", () => {
+          const selectedItem = catalogById.get(menuSelect.value);
+          if (!selectedItem) {
+            menuSelect.focus();
+            return;
+          }
+
+          addOrderItem(selectedItem, getQuantity(menuQty));
+          if (menuQty) menuQty.value = "1";
+        });
+
+        addCustomButton?.addEventListener("click", () => {
+          const name = customName?.value.trim() || "";
+          const price = parseEuroValue(customPrice?.value || "");
+          const quantity = getQuantity(customQty);
+
+          if (!name) {
+            showInvalid(customName, "Bitte Gericht oder Nummer eintragen.");
+            return;
+          }
+
+          if (!price) {
+            showInvalid(customPrice, "Bitte einen gültigen Preis eintragen.");
+            return;
+          }
+
+          const slug = name
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9-]/g, "")
+            .slice(0, 42);
+          addOrderItem({ id: `custom-${slug || "item"}-${price.toFixed(2)}`, code: "", category: "Freie Eingabe", name, price }, quantity);
+          if (customName) customName.value = "";
+          if (customPrice) customPrice.value = "";
+          if (customQty) customQty.value = "1";
+        });
+
+        orderItems?.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-order-action]");
+          if (!button) return;
+
+          const index = Number.parseInt(button.dataset.orderIndex, 10);
+          const item = orderState[index];
+          if (!item) return;
+
+          if (button.dataset.orderAction === "increase") {
+            item.quantity = Math.min(item.quantity + 1, 99);
+          }
+
+          if (button.dataset.orderAction === "decrease") {
+            item.quantity -= 1;
+            if (item.quantity <= 0) orderState.splice(index, 1);
+          }
+
+          if (button.dataset.orderAction === "remove") {
+            orderState.splice(index, 1);
+          }
+
+          renderOrder();
+        });
+
+        pickupDiscount?.addEventListener("change", renderOrder);
+
+        sendOrderButton?.addEventListener("click", () => {
+          if (orderState.length === 0) {
+            menuSelect.focus();
+            return;
+          }
+
+          const message = encodeURIComponent(buildWhatsAppMessage());
+          window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank", "noopener");
+        });
+      }
     })();
   </script>
 </body>
