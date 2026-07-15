@@ -64,27 +64,17 @@
       overflow: hidden;
       color: #fff;
       background:
-        radial-gradient(ellipse 88% 48% at 8% 92%, rgba(20, 96, 69, 0.74), transparent 60%),
-        linear-gradient(150deg, #b9dfb0 0 36%, #0d4b36 36.5% 100%);
+        linear-gradient(90deg, rgba(3, 25, 17, 0.34), rgba(3, 25, 17, 0.12)),
+        url("1.jpg") center / cover no-repeat;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       z-index: 0;
-      top: -150px;
-      left: -10%;
-      width: 118%;
-      height: 720px;
+      inset: 0;
       background:
-        radial-gradient(ellipse 42% 34% at 25% 30%, rgba(225, 245, 215, 0.56), transparent 62%),
-        radial-gradient(ellipse 50% 34% at 76% 38%, rgba(137, 194, 126, 0.32), transparent 66%),
-        radial-gradient(ellipse 60% 48% at 46% 70%, rgba(204, 235, 196, 0.48), transparent 70%),
-        linear-gradient(135deg, #c1e6b8 0%, #a9d59f 58%, #bde2b4 100%);
-      border-radius: 0 0 58% 42% / 0 0 56% 72%;
-      transform: rotate(-2.5deg);
-      transform-origin: 50% 0;
-      box-shadow: inset 0 -34px 70px rgba(255, 255, 255, 0.16);
+        linear-gradient(180deg, rgba(3, 24, 16, 0.1) 0%, rgba(3, 24, 16, 0.18) 54%, rgba(3, 24, 16, 0.72) 100%);
       pointer-events: none;
     }
 
@@ -406,7 +396,9 @@
       overflow: hidden;
       min-height: 850px;
       padding: 130px 0 90px;
-      background: var(--cream);
+      background:
+        linear-gradient(rgba(239, 229, 215, 0.2), rgba(239, 229, 215, 0.32)),
+        url("2.jpg") center / cover no-repeat;
     }
 
     .about__inner,
@@ -1500,6 +1492,281 @@
       }
     }
 
+    /* Refined image-led hero and about section */
+    .hero {
+      min-height: min(900px, 100dvh);
+      background-position: center;
+    }
+
+    .hero::before {
+      inset: 0;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: linear-gradient(90deg, rgba(3, 20, 13, 0.82) 0%, rgba(3, 20, 13, 0.48) 46%, rgba(3, 20, 13, 0.12) 78%);
+      transform: none;
+    }
+
+    .hero::after {
+      background: linear-gradient(180deg, rgba(3, 20, 13, 0.1), transparent 52%, rgba(3, 20, 13, 0.52));
+      mix-blend-mode: normal;
+    }
+
+    .hero__nav {
+      min-height: 104px;
+      padding-top: 18px;
+    }
+
+    .brand-mark {
+      width: 96px;
+      height: 96px;
+      border: 3px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 8px 18px rgba(3, 20, 13, 0.28);
+    }
+
+    .brand-logo {
+      width: 88px;
+      height: 88px;
+    }
+
+    .hero__stage {
+      height: calc(min(900px, 100dvh) - 104px);
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: clamp(88px, 12vh, 128px);
+    }
+
+    .hero__content {
+      width: min(660px, 100%);
+      display: grid;
+      justify-items: start;
+      gap: 20px;
+    }
+
+    .hero__welcome,
+    .hero__headline,
+    .hero__copy,
+    .hero__actions {
+      position: static;
+      inset: auto;
+      width: auto;
+      margin: 0;
+    }
+
+    .hero__welcome {
+      padding: 8px 12px;
+      color: #fff;
+      border-radius: 999px;
+      background: rgba(6, 68, 47, 0.88);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .hero__headline {
+      max-width: 650px;
+      color: #fff;
+      font-size: clamp(3rem, 5.8vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+      text-shadow: 0 3px 12px rgba(3, 20, 13, 0.34);
+    }
+
+    .hero__copy {
+      max-width: 560px;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      font-weight: 680;
+      line-height: 1.55;
+      text-wrap: pretty;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .hero__wave {
+      bottom: -182px;
+      height: 210px;
+      background: var(--paper);
+    }
+
+    .hero__wave::before {
+      display: none;
+    }
+
+    .about {
+      min-height: 0;
+      padding: clamp(82px, 10vw, 140px) 0;
+      background: var(--paper);
+    }
+
+    .about__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      align-items: center;
+      gap: clamp(36px, 6vw, 82px);
+    }
+
+    .about__photo {
+      min-height: 590px;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      background: var(--forest);
+      box-shadow: 0 8px 0 rgba(6, 68, 47, 0.16);
+    }
+
+    .about__photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 590px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .about__blob {
+      width: auto;
+      min-height: 0;
+      margin: 0;
+      padding: clamp(34px, 4vw, 56px);
+      place-items: start;
+      text-align: left;
+      border-radius: 14px;
+      box-shadow: none;
+    }
+
+    .about__blob h2 {
+      margin-bottom: 26px;
+      font-family: inherit;
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+    }
+
+    .about__blob p {
+      max-width: 58ch;
+      margin: 0 0 20px;
+      font-size: 1.05rem;
+      font-weight: 620;
+      line-height: 1.65;
+      text-align: left;
+      text-wrap: pretty;
+    }
+
+    .about__blob .button {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        min-height: 820px;
+        background-position: 58% center;
+      }
+
+      .hero__stage {
+        height: 716px;
+        padding-bottom: 84px;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .about__photo,
+      .about__photo img {
+        min-height: 440px;
+      }
+
+      .about__photo {
+        border-radius: 14px 14px 0 0;
+        box-shadow: none;
+      }
+
+      .about__blob {
+        border-radius: 0 0 14px 14px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        min-height: 760px;
+        background-position: 57% center;
+      }
+
+      .hero::before {
+        background: linear-gradient(180deg, rgba(3, 20, 13, 0.28), rgba(3, 20, 13, 0.44) 44%, rgba(3, 20, 13, 0.9));
+      }
+
+      .hero__nav {
+        min-height: 88px;
+      }
+
+      .brand-mark {
+        width: 76px;
+        height: 76px;
+      }
+
+      .brand-logo {
+        width: 68px;
+        height: 68px;
+      }
+
+      .hero__stage {
+        height: 672px;
+        padding-bottom: 58px;
+      }
+
+      .hero__content {
+        gap: 16px;
+      }
+
+      .hero__headline {
+        max-width: 12ch;
+        font-size: clamp(2.65rem, 13vw, 4rem);
+      }
+
+      .hero__copy {
+        max-width: 36ch;
+      }
+
+      .hero__actions {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero__actions .button {
+        width: 100%;
+      }
+
+      .about {
+        padding: 64px 0 76px;
+      }
+
+      .about__photo,
+      .about__photo img {
+        min-height: 300px;
+      }
+
+      .about__photo img {
+        object-position: 52% center;
+      }
+
+      .about__blob {
+        padding: 34px 24px 38px;
+      }
+
+      .about__blob h2 {
+        font-size: clamp(2.5rem, 13vw, 3.6rem);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -1529,53 +1796,27 @@
       </div>
 
       <div class="hero__stage">
-        <h2 class="hero__headline">Frische vietnamesische Küche neu erlebt</h2>
-
-        <div class="hero__bamboo" aria-hidden="true">
-          <span class="cane" style="--x: 126px; --h: 350px; --r: -3deg;"></span>
-          <span class="cane" style="--x: 178px; --h: 410px; --r: 2deg;"></span>
-          <span class="cane" style="--x: 228px; --h: 290px; --r: 6deg;"></span>
-          <span class="cane" style="--x: 280px; --h: 360px; --r: 12deg;"></span>
-          <span class="cane" style="--x: 82px; --h: 240px; --r: -10deg;"></span>
-          <span class="leaf" style="--x: 22px; --y: 60px; --r: 24deg;"></span>
-          <span class="leaf" style="--x: 36px; --y: 130px; --r: -8deg;"></span>
-          <span class="leaf" style="--x: 262px; --y: 72px; --r: -24deg;"></span>
-          <span class="leaf" style="--x: 300px; --y: 150px; --r: 13deg;"></span>
-          <span class="leaf" style="--x: 4px; --y: 250px; --r: 10deg;"></span>
-        </div>
-
-        <span class="drink-sticker" aria-hidden="true"></span>
-
-        <h1 class="hero__welcome script" id="hero-title">Willkommen bei<br>Bamboo Bowl 57</h1>
-        <p class="hero__copy">Traditionelle Rezepte kombiniert mit moderner Küche - leicht, aromatisch und ausgewogen.</p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="https://wa.me/4915560567999" target="_blank" rel="noopener">WhatsApp 015560567999</a>
-          <a class="button button--ghost" href="https://maps.app.goo.gl/MzKq6xeMq3d4tKkK8" target="_blank" rel="noopener">Route öffnen</a>
-        </div>
-        <div class="hero__social" aria-label="Kontakt">
-          <span class="social-dot">IG</span>
-          <span class="social-dot">f</span>
+        <div class="hero__content">
+          <p class="hero__welcome" id="hero-title">Willkommen bei Bamboo Bowl 57</p>
+          <h1 class="hero__headline">Frische vietnamesische Küche. Neu erlebt.</h1>
+          <p class="hero__copy">Traditionelle Rezepte, moderne Küche und frische Zutaten. Leicht, aromatisch und ausgewogen.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="https://wa.me/4915560567999" target="_blank" rel="noopener">Jetzt per WhatsApp bestellen</a>
+            <a class="button button--ghost" href="https://maps.app.goo.gl/MzKq6xeMq3d4tKkK8" target="_blank" rel="noopener">Route öffnen</a>
+          </div>
         </div>
       </div>
       <div class="hero__wave" aria-hidden="true"></div>
     </section>
 
     <section class="about" id="ueber-uns" aria-labelledby="about-title">
-      <img class="about__deco about__deco--logo logo-a" src="assets/logo-circle.png" alt="" width="1024" height="1024" loading="lazy">
-      <img class="about__deco about__deco--logo logo-b" src="assets/logo-circle.png" alt="" width="1024" height="1024" loading="lazy">
-      <div class="about__deco about__bamboo" aria-hidden="true">
-        <span class="cane" style="--x: 86px; --h: 340px; --r: -5deg;"></span>
-        <span class="cane" style="--x: 138px; --h: 420px; --r: 3deg;"></span>
-        <span class="cane" style="--x: 192px; --h: 305px; --r: 9deg;"></span>
-        <span class="leaf" style="--x: 14px; --y: 70px; --r: 24deg;"></span>
-        <span class="leaf" style="--x: 230px; --y: 128px; --r: -18deg;"></span>
-        <span class="leaf" style="--x: 34px; --y: 238px; --r: 8deg;"></span>
-      </div>
-
       <div class="about__inner">
+        <figure class="about__photo">
+          <img src="2.jpg" alt="Der Empfangsbereich von Bamboo Bowl 57 mit Bambusholz und beleuchtetem Restaurantlogo" width="1448" height="1086" loading="lazy">
+        </figure>
         <div class="about__blob">
           <div>
-            <h2 class="script" id="about-title">Über uns</h2>
+            <h2 id="about-title">Über uns</h2>
             <p>Willkommen bei Bamboo Bowl 57 - Ihrem Restaurant für frisches Sushi, aromatische Wok-Gerichte und gesunde Bowls mit authentischen vietnamesischen Aromen.</p>
             <p>Wir legen großen Wert auf frische Zutaten, ausgewogene Rezepte und eine moderne Interpretation der asiatischen Küche. Ob leicht, herzhaft oder exotisch - bei uns finden Sie den perfekten Geschmacksmoment.</p>
             <a class="button button--ghost" href="https://wa.me/4915560567999" target="_blank" rel="noopener">10% Rabatt bei Abholung</a>
