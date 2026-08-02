@@ -38,6 +38,96 @@
       line-height: 1.55;
     }
 
+    dialog.promotion-popup {
+      width: min(520px, calc(100% - 32px));
+      max-height: calc(100dvh - 32px);
+      margin: auto;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      color: var(--forest-dark);
+      border: 0;
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(3, 16, 10, 0.32);
+    }
+
+    dialog.promotion-popup::backdrop {
+      background: rgba(10, 13, 11, 0.58);
+    }
+
+    .promotion-popup__image {
+      width: 100%;
+      height: clamp(180px, 32dvh, 280px);
+      object-fit: cover;
+      object-position: center 58%;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .promotion-popup__close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: #fff;
+      border: 0;
+      border-radius: 50%;
+      background: var(--forest);
+      cursor: pointer;
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .promotion-popup__close:hover,
+    .promotion-popup__close:focus-visible {
+      color: var(--forest-dark);
+      background: var(--gold);
+      outline: 3px solid #fff;
+      outline-offset: 2px;
+    }
+
+    .promotion-popup__content {
+      padding: clamp(24px, 6vw, 38px);
+      text-align: center;
+    }
+
+    .promotion-popup__content h2 {
+      max-width: 440px;
+      margin: 0 auto 12px;
+      font-size: clamp(2.3rem, 8vw, 3.8rem);
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    .promotion-popup__content p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .promotion-popup__content .button {
+      width: 100%;
+    }
+
+    @media (max-height: 620px) {
+      .promotion-popup__image {
+        height: 150px;
+      }
+
+      .promotion-popup__content {
+        padding: 18px 24px 22px;
+      }
+
+      .promotion-popup__content h2 {
+        font-size: clamp(2rem, 7vw, 2.8rem);
+      }
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -1783,6 +1873,15 @@
   </style>
 </head>
 <body>
+  <dialog class="promotion-popup" id="promotion-popup" aria-labelledby="promotion-title">
+    <img class="promotion-popup__image" src="assets/feature-3.jpg" alt="Frisch zubereitete Sushi-Auswahl" width="1200" height="706">
+    <button class="promotion-popup__close" type="button" aria-label="Angebot schließen" data-promotion-close>&times;</button>
+    <div class="promotion-popup__content">
+      <h2 class="script" id="promotion-title">🎉 10% Rabatt bei Selbstabholung</h2>
+      <p>Das Angebot gilt bis zum 31.08.2026.</p>
+      <a class="button button--primary" href="#bestellen" data-promotion-order>Jetzt bestellen</a>
+    </div>
+  </dialog>
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__nav">
@@ -1819,7 +1918,7 @@
             <h2 id="about-title">Über uns</h2>
             <p>Willkommen bei Bamboo Bowl 57 - Ihrem Restaurant für frisches Sushi, aromatische Wok-Gerichte und gesunde Bowls mit authentischen vietnamesischen Aromen.</p>
             <p>Wir legen großen Wert auf frische Zutaten, ausgewogene Rezepte und eine moderne Interpretation der asiatischen Küche. Ob leicht, herzhaft oder exotisch - bei uns finden Sie den perfekten Geschmacksmoment.</p>
-            <a class="button button--ghost" href="https://wa.me/4915560567999" target="_blank" rel="noopener">10% Rabatt bei Abholung</a>
+            <a class="button button--ghost" href="https://wa.me/4915560567999" target="_blank" rel="noopener">10% Rabatt bis 31.08.2026</a>
           </div>
         </div>
       </div>
@@ -2043,7 +2142,7 @@
 
             <label class="discount-toggle">
               <input type="checkbox" data-pickup-discount checked>
-              10% Rabatt bei Selbstabholung berechnen
+              10% Rabatt bei Selbstabholung (bis 31.08.2026)
             </label>
 
             <dl class="invoice-totals">
@@ -2092,7 +2191,7 @@
               <a class="button button--primary" href="https://wa.me/4915560567999" target="_blank" rel="noopener">WhatsApp bestellen</a>
               <a class="button button--ghost" href="https://maps.app.goo.gl/MzKq6xeMq3d4tKkK8" target="_blank" rel="noopener">Route öffnen</a>
             </div>
-            <p style="margin-top: 24px;">Eiserntalstraße 35, 57080 Siegen<br>10% Rabatt bei Selbstabholung</p>
+            <p style="margin-top: 24px;">Eiserntalstraße 35, 57080 Siegen<br>10% Rabatt bei Selbstabholung bis 31.08.2026</p>
           </div>
           <iframe
             class="map-frame"
@@ -2132,6 +2231,9 @@
 
   <script>
     (() => {
+      const promotionPopup = document.getElementById("promotion-popup");
+      const promotionClose = document.querySelector("[data-promotion-close]");
+      const promotionOrder = document.querySelector("[data-promotion-order]");
       const menuPages = Array.from(document.querySelectorAll(".menu-page"));
       const menuButtons = Array.from(document.querySelectorAll("[data-menu-target]"));
       const menuGrid = document.querySelector(".menu-grid");
@@ -2147,6 +2249,18 @@
       let dragStartX = 0;
       let dragStartY = 0;
       let suppressMenuClick = false;
+
+      if (promotionPopup && typeof promotionPopup.showModal === "function") {
+        promotionPopup.showModal();
+      } else {
+        promotionPopup?.setAttribute("open", "");
+      }
+
+      promotionClose?.addEventListener("click", () => promotionPopup.close());
+      promotionOrder?.addEventListener("click", () => promotionPopup.close());
+      promotionPopup?.addEventListener("click", (event) => {
+        if (event.target === promotionPopup) promotionPopup.close();
+      });
 
       const showMenuPage = (index) => {
         const activeIndex = (index + menuPages.length) % menuPages.length;
